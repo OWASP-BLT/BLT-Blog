@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="post-outer-container">
+  
+  <article class="post-card">
+
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+      
+      <div class="post-meta-data">
+        By <span class="post-author">{{ page.author | default: "OWASP BLT Team" }}</span> 
+        on {{ page.date | date: "%b. %d, %Y" }}
+      </div>
+    </header>
+
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    {% if page.image %}
+    <div class="post-footer-image-wrapper">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="post-footer-image">
+    </div>
+    {% endif %}
+  </article>
+
+</div>
