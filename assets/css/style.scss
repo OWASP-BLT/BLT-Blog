@@ -5,11 +5,11 @@
   --primary: #e74c3c;
   --primary-hover: #c0392b;
   --link-blue: #2563eb;
-    --bg-body: #ffffff;    
+  --bg-body: #ffffff;    
   --bg-card: #ffffff;
   --text-main: #111827;   
-  --text-body: #374151;   
-  --text-muted: #6b7280;  
+  --text-body: #1f2937;  
+  --text-muted: #4b5563; 
   --text-desc: #4b5563;   
   --border: #e5e7eb;      
   --input-bg: #ffffff;
@@ -105,12 +105,15 @@ html.dark .moon-icon { opacity: 0; transform: rotate(90deg); }
 }
 
 .blog-hero__title {
-  font-size: 1.875rem; 
+  font-size: 2rem;        /* text-3xl */
   line-height: 2.25rem;
-  font-weight: 700; 
-  color: var(--text-main);
-  margin: 0 0 1rem;
-  letter-spacing: -0.025em; 
+  font-weight: 550;           
+  color: #111827;             /* text-gray-900 */
+  margin-bottom: 1rem;        /* mb-4 */
+}
+
+html.dark .blog-hero__title {
+  color: #f3f4f6;             /* text-gray-100 */
 }
 
 .hero-underline {
@@ -145,7 +148,7 @@ html.dark .moon-icon { opacity: 0; transform: rotate(90deg); }
   border: 1px solid var(--border);
   background-color: var(--input-bg);
   color: var(--text-main);
-  font-size: 1rem;
+  font-size: 0.80rem;
   outline: none;
   transition: border-color 0.15s;
   box-shadow: var(--shadow-sm);
@@ -276,7 +279,7 @@ html.dark .post-card { border-color: var(--border); }
 .post-meta-data { text-align: center; color: var(--text-muted); font-size: 1rem; }
 
 /* Typography for Post Content */
-.post-content { color: var(--text-body); font-size: 1rem; line-height: 1.75; }
+.post-content { color: var(--text-body); font-size: 1rem; line-height: 1.75;   font-weight: 450; }
 .post-content p { margin-bottom: 1.5rem; }
 .post-content h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-main); }
 .post-content h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--text-main); }

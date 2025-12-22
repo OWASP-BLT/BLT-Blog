@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "🌟 Introducing the New GSoC Leaderboard for Top Contributors for GSoC 2025 Projects"
-date: 2025-03-09 18:53:00 +0000
+date: 2025-03-09 18:53
 categories: announcements
 author: nitin_awari
 image: /assets/images/leadrboard1.png
@@ -10,7 +10,7 @@ image: /assets/images/leadrboard1.png
 
 We are thrilled to announce the launch of a new GSoC 2025 Aspiring Contributors Leaderboard on the OWASP BLT (Bug Logging Tool) project! 🎉 This is an exciting opportunity for all contributors aiming to participate in Google Summer of Code (GSoC) 2025.
 <br>
-🔗 Check out the leaderboard here: [gsoc leaderboard](https://blt.owasp.org/gsoc/)
+🔗 Check out the leaderboard here: **[gsoc leaderboard](https://blt.owasp.org/gsoc/)**
 #### 🌱 What is the GSoC Aspiring Contributors Leaderboard?
 The GSoC 2025 Aspiring Contributors Leaderboard is designed to recognize and motivate those individuals who are preparing to apply for GSoC 2025 with OWASP organisation. This leaderboard is a pre-GSoC initiative aimed at encouraging contributors to engage early, collaborate with mentors, and build their portfolios ahead of the official GSoC program.
 #### 🎯 Key Features

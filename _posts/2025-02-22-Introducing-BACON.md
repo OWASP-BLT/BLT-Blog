@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introducing BACON: The First Open Source Security Token Built on Bitcoin Runes"
-date: 2025-02-22 
+date: 2025-02-22 19:53
 author: krrish__sehgal
 image: /assets/images/bacon.png
 ---

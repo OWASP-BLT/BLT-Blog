@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to Deploy a Fungible Token on Bitcoin Ordinals"
-date: 2025-08-26 05:23:00 +0000
+date: 2025-08-26 05:23
 categories: announcements
 author: krrish__sehgal
 image: /assets/images/bitcoin_ordials.png

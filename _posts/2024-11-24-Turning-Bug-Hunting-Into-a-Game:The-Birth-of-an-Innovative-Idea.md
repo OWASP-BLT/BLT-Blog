@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Turning Bug Hunting Into a Game: The Birth of an Innovative Idea"
-date: 2025-03-09 18:53:00 +0000
+date: 2024-11-24 02:48
 categories: announcements
 author: donnie
 image: /assets/images/test_game.png
