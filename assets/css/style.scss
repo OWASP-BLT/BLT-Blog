@@ -297,3 +297,24 @@ html.dark .post-card { border-color: var(--border); }
 .post-footer-image-wrapper { margin-top: 1.5rem; margin-bottom: 1.5rem; }
 .post-footer-image { width: 100%; height: auto; border-radius: 0.5rem; box-shadow: var(--shadow-lg); display: block; }
 
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--text-muted);
+}
+
+.no-results-icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem;
+  display: block;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+.no-results {
+  margin-top: 4rem;
+  text-align: center;
+}

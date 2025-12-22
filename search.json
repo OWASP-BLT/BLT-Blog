@@ -1,0 +1,15 @@
+---
+layout: null
+---
+[
+{% for post in site.posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }},
+    "date": {{ post.date | date: "%b %d, %Y" | jsonify }},
+    "author": {{ post.author | default: "OWASP BLT" | jsonify }},
+    "image": {{ post.image | relative_url | default: "" | jsonify }},
+    "content": {{ post.content | strip_html | strip_newlines | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

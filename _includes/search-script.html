@@ -1,0 +1,118 @@
+<script>
+  /* Blog search */
+
+  let allPosts = [];
+
+  const searchInput = document.getElementById("post-search");
+  const blogGrid = document.querySelector(".blog-grid");
+  const originalHTML = blogGrid.innerHTML;
+
+  // No-results UI
+  const noResultsHTML = `
+    <div id="no-results" class="no-results">
+      <svg class="no-results-icon"
+           xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor">
+        <circle cx="11" cy="11" r="8" stroke-width="2"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2"/>
+      </svg>
+
+      <p class="no-results-title">No matching posts found</p>
+      <p class="no-results-desc">
+        Try adjusting your search criteria or browse all posts below.
+      </p>
+    </div>
+  `;
+
+  // Fetch search index
+  fetch("{{ '/search.json' | relative_url }}")
+    .then(res => res.json())
+    .then(data => {
+      allPosts = data;
+    })
+    .catch(err => {
+      console.error("Search index failed to load", err);
+    });
+
+  // Search handler
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase().trim();
+
+    // Reset if input is empty
+    if (!query) {
+      blogGrid.innerHTML = originalHTML;
+      return;
+    }
+
+    // Filter posts
+    const results = allPosts.filter(post =>
+      post.title.toLowerCase().includes(query) ||
+      post.content.toLowerCase().includes(query)
+    );
+
+    // Clear grid
+    blogGrid.innerHTML = "";
+
+    // No matches
+    if (results.length === 0) {
+      blogGrid.innerHTML = noResultsHTML;
+      return;
+    }
+
+    // Render results 
+    results.forEach(post => {
+      blogGrid.innerHTML += `
+        <article class="blog-card">
+          <a href="${post.url}" class="blog-card__link"></a>
+
+          <div class="blog-card__image-wrapper">
+            ${
+              post.image && post.image.length > 0
+                ? `<img src="${post.image}" alt="${post.title}" class="blog-card__image">`
+                : `<div class="blog-card__placeholder">
+                     <span>${post.title.charAt(0)}</span>
+                   </div>`
+            }
+
+            <span class="blog-card__badge">Article</span>
+
+            <div class="blog-card__author">
+              <div class="author-avatar">
+                ${(post.author || "O").charAt(0)}
+              </div>
+              <span class="author-name">
+                ${post.author || "OWASP BLT"}
+              </span>
+            </div>
+          </div>
+
+          <div class="blog-card__content">
+            <h2 class="blog-card__title">${post.title}</h2>
+
+            <div class="blog-card__meta">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10
+                         M5 21h14a2 2 0 002-2V7
+                         a2 2 0 00-2-2H5
+                         a2 2 0 00-2 2v12
+                         a2 2 0 002 2z"/>
+              </svg>
+              ${post.date}
+              <span class="dot">•</span>
+              5 min read
+            </div>
+
+            <span class="blog-card__read-more">
+              Read more →
+            </span>
+          </div>
+        </article>
+      `;
+    });
+  });
+</script>
