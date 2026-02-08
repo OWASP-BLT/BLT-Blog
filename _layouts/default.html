@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | OWASP BLT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="nav-left">
+    <a href="{{ '/' | relative_url }}" class="logo-link">
+      <img src="{{ '/assets/images/owasp-blt-logo.svg' | relative_url }}"
+           alt="OWASP BLT"
+           class="blt-logo">
+    </a>
+  </div>
+
+  <div class="nav-right">
+    <button id="theme-toggle"
+        class="theme-toggle-btn"
+        aria-label="Toggle dark mode">
+        <i id="sun-icon" class="fas fa-sun sun-icon"></i>
+        <i id="moon-icon" class="fas fa-moon moon-icon"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+  {{ content }}
+</main>
+
+<script>
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const htmlElement = document.documentElement;
+
+  // Check Local Storage or System Preference
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    htmlElement.classList.add('dark');
+  } else {
+    htmlElement.classList.remove('dark');
+  }
+
+  // Toggle Function
+  themeToggleBtn.addEventListener('click', () => {
+    if (htmlElement.classList.contains('dark')) {
+      htmlElement.classList.remove('dark');
+      localStorage.theme = 'light';
+    } else {
+      htmlElement.classList.add('dark');
+      localStorage.theme = 'dark';
+    }
+  });
+</script>
+
+</body>
+</html>

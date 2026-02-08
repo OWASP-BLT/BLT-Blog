@@ -1,0 +1,82 @@
+---
+layout: default
+title: Blog Posts
+---
+
+<section class="blog-hero">
+  <div class="blog-hero__container">
+    
+    <h1 class="blog-hero__title">Blog Posts</h1>
+    
+    <div class="hero-underline"></div>
+    
+    <p class="blog-hero__description">
+      Discover the latest thoughts, tutorials, and updates from our community
+    </p>
+
+    <div class="blog-hero__search">
+      <div class="search-bar">
+        <input 
+          type="text" 
+          id="post-search" 
+          placeholder="Search blog posts..." 
+          class="search-bar__input"
+        >
+        <div class="search-bar__icon-wrapper">
+          <svg class="search-bar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="blog-grid-wrapper">
+  <div class="blog-grid">
+    {% for post in site.posts %}
+    <article class="blog-card">
+      <a href="{{ post.url | relative_url }}" class="blog-card__link"></a>
+
+      <div class="blog-card__image-wrapper">
+        {% if post.image %}
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="blog-card__image">
+        {% else %}
+          <div class="blog-card__placeholder">
+            <span>{{ post.title | slice: 0 }}</span>
+          </div>
+        {% endif %}
+
+        <span class="blog-card__badge">Article</span>
+
+        <div class="blog-card__author">
+          <div class="author-avatar">
+            {{ post.author | default: "O" | slice: 0 }}
+          </div>
+          <span class="author-name">{{ post.author | default: "OWASP BLT" }}</span>
+        </div>
+      </div>
+
+      <div class="blog-card__content">
+        <h2 class="blog-card__title">{{ post.title }}</h2>
+
+        <div class="blog-card__meta">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          {{ post.date | date: "%b %d, %Y" }}
+          <span class="dot">•</span>
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253"/>
+          </svg>
+          5 min read
+        </div>
+
+        <span class="blog-card__read-more">Read more &rarr;</span>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% include search-script.html %}
